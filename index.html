@@ -1,51 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Channels</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      min-height: 100vh;
-      margin: 0;
-      padding: 20px;
+      background: linear-gradient(270deg, #ff6a00, #ee0979, #6a11cb, #2575fc);
+      background-size: 800% 800%;
+      animation: gradientBG 60s ease infinite;
+      color: #fff;
     }
-    h1 {
-      margin-top: 40px;
-      font-size: 24px;
-      color: #222;
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
-    .link-btn {
-      display: block;
-      width: 250px;
-      margin: 12px 0;
-      padding: 14px;
+
+    header {
       text-align: center;
-      font-size: 18px;
-      color: white;
-      background: #0078ff;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: background 0.3s;
+      margin: 3rem 1rem 2rem;
     }
-    .link-btn:hover {
-      background: #005fcc;
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0.3rem 0;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.8;
+    }
+
+    .channel-columns {
+      display: flex;
+      gap: 20px;
+      width: 90%;
+      max-width: 900px;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .column h2 {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      opacity: 0.9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none; /* removed underline */
+    }
+
+    .channel {
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 15px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .channel:hover {
+      transform: translateY(-5px) scale(1.02);
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
+
+    .channel i {
+      font-size: 2rem;
+      min-width: 40px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .channel-content {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .channel-content p {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin: 0;
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 1rem;
+      font-size: 0.85rem;
+      opacity: 0.7;
+      text-align: center;
+    }
+
+    .channel:active {
+      transform: scale(0.98);
+    }
+
+    .coming-soon {
+      margin-top: 1rem;
+      font-size: 1rem;
+      text-align: center;
+      opacity: 0.8;
+      font-style: italic;
+    }
+
+    @media(max-width: 750px){
+      .channel-columns { flex-direction: column; align-items: center; }
+      header h1 { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
-  <h1>My Channels</h1>
-  
-  <a href="https://t.me/truegrabbers" class="link-btn">TrueGrabbers</a>
-  <a href="https://t.me/tipsandtricks" class="link-btn">TG - Tips & Tricks</a>
-  <a href="https://t.me/fashionhub" class="link-btn">TG - Fashion Hub</a>
-  <a href="https://t.me/extrasavings" class="link-btn">TG - Extra Savings</a>
-  
+  <header>
+    <h1>⚡️ TrueGrabbers Channels</h1>
+    <p>One-Stop Destination for Loot, Deals & Offers!</p>
+  </header>
+
+  <section class="channel-columns">
+    <!-- Telegram Column -->
+    <div class="column">
+      <h2><i class="fab fa-telegram-plane"></i> Telegram Channels</h2>
+
+<a class="channel" href="https://t.me/+jY1FAgS1Wx80Mjk1" target="_blank">
+  <i class="fas fa-bolt"></i>
+  <div class="channel-content">
+    <strong>TrueGrabbers | Loot Deals</strong>
+    <p>Best deals, price drops, loot & worthy deals</p>
+  </div>
+</a>
+
+<a class="channel" href="https://t.me/+ULcdPv-rdOA2YmI1" target="_blank">
+  <i class="fas fa-tag"></i>
+  <div class="channel-content">
+    <strong>TrueGrabbers 2.0</strong>
+    <p>Overflow of steal-worthy deals</p>
+  </div>
+</a>
+
+<a class="channel" href="https://t.me/+waoM8OVib4pmYjRl" target="_blank">
+  <i class="fas fa-hand-holding-dollar"></i>
+  <div class="channel-content">
+    <strong>TG - Offers & Tricks</strong>
+    <p>Cashback, tricks, coupons & offers</p>
+  </div>
+</a>
+    </div>
+
+    <!-- Other Platforms Column -->
+    <div class="column">
+      <h2><i class="fas fa-share-alt"></i> Other Platforms</h2>
+
+      <a class="channel" href="https://whatsapp.com/channel/0029VaAxlk18aKvKaaMefW1o" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <div class="channel-content">
+          <strong>WhatsApp Channel</strong>
+          <p>Join WhatsApp channel for loot alerts. </p>
+        </div>
+      </a>
+
+    <a class="channel" href="https://instagram.com/truegrabbers" target="_blank">
+  <i class="fab fa-instagram"></i>
+  <div class="channel-content">
+    <strong>Instagram</strong>
+    <p>Follow us on Instagram for latest offers.</p>
+  </div>
+</a>
+    </div>
+  </section>
+
+  <div class="coming-soon">🌐 Website coming soon!</div>
+
+  <footer>
+    © 2025 TrueGrabbers. All rights reserved.
+  </footer>
 </body>
 </html>
