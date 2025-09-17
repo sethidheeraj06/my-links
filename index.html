@@ -141,29 +141,26 @@
     .aside .smeta .sname{font-weight:600;}
     .aside .smeta .sdesc{font-size:0.85rem;color:var(--text-muted);}
     footer{margin-top:18px;text-align:center;font-size:0.82rem;color:rgba(255,255,255,0.6);}
-    
-    /* Floating Contact Us button */
     .contact-float{
-      position:fixed;bottom:20px;right:20px;
+      position:fixed;
+      bottom:calc(env(safe-area-inset-bottom, 0) + 20px);
+      right:20px;
       padding:12px 18px;
       border-radius:28px;
       background: rgba(255,255,255,0.1);
       backdrop-filter: blur(8px);
       border:1px solid var(--glass-border);
-      display:flex;align-items:center;gap:8px;
-      font-size:14px;font-weight:600;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-size:14px;
+      font-weight:600;
       cursor:pointer;
       box-shadow:0 4px 20px rgba(0,0,0,0.3);
-      text-decoration:none;color:white;
-      white-space: nowrap; /* prevent text break */
-    }
-
-    /* Mobile adjustments */
-    @media(max-width:480px){
-      .contact-float{
-        font-size:13px;
-        padding:10px 14px;
-      }
+      text-decoration:none;
+      color:white;
+      white-space:nowrap;
+      z-index:9999;
     }
   </style>
 </head>
