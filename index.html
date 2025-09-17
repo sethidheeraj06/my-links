@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TrueGrabbers</title>
-<link rel="icon" href="/my-links/favicon.png" type="image/png">
+  <link rel="icon" href="favicon.png" type="image/png">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <style>
     body {
@@ -31,6 +31,20 @@
     header {
       text-align: center;
       margin: 3rem 1rem 2rem;
+    }
+
+    .header-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .header-title img {
+      width: 50px; 
+      height: 50px;
+      border-radius: 12px; /* optional rounded */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* optional shadow */
     }
 
     header h1 {
@@ -70,7 +84,7 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      text-decoration: none; /* removed underline */
+      text-decoration: none;
     }
 
     .channel {
@@ -138,14 +152,17 @@
     @media(max-width: 750px){
       .channel-columns { flex-direction: column; align-items: center; }
       header h1 { font-size: 2rem; }
+      .header-title img { width: 40px; height: 40px; }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>⚡️ TrueGrabbers</h1>
-    <p>Welcome to TrueGrabbers – One-Stop Destination for Loot, Deals & Offers!
-</p>
+    <div class="header-title">
+      <img src="logo.png" alt="TrueGrabbers Logo">
+      <h1>⚡️ TrueGrabbers</h1>
+    </div>
+    <p>Welcome to TrueGrabbers – One-Stop Destination for Loot, Deals & Offers!</p>
   </header>
 
   <section class="channel-columns">
@@ -153,29 +170,29 @@
     <div class="column">
       <h2><i class="fab fa-telegram-plane"></i> Telegram Channels</h2>
 
-<a class="channel" href="https://t.me/+jY1FAgS1Wx80Mjk1" target="_blank">
-  <i class="fas fa-bolt"></i>
-  <div class="channel-content">
-    <strong>TrueGrabbers | Loot Deals</strong>
-    <p>Best deals, price drops deals</p>
-  </div>
-</a>
+      <a class="channel" href="https://t.me/+jY1FAgS1Wx80Mjk1" target="_blank">
+        <i class="fas fa-bolt"></i>
+        <div class="channel-content">
+          <strong>TrueGrabbers | Loot Deals</strong>
+          <p>Best deals, price drops deals</p>
+        </div>
+      </a>
 
-<a class="channel" href="https://t.me/+ULcdPv-rdOA2YmI1" target="_blank">
-  <i class="fas fa-tag"></i>
-  <div class="channel-content">
-    <strong>TrueGrabbers 2.0</strong>
-    <p>Overflow of steal-worthy deals</p>
-  </div>
-</a>
+      <a class="channel" href="https://t.me/+ULcdPv-rdOA2YmI1" target="_blank">
+        <i class="fas fa-tag"></i>
+        <div class="channel-content">
+          <strong>TrueGrabbers 2.0</strong>
+          <p>Overflow of steal-worthy deals</p>
+        </div>
+      </a>
 
-<a class="channel" href="https://t.me/+waoM8OVib4pmYjRl" target="_blank">
-  <i class="fas fa-hand-holding-dollar"></i>
-  <div class="channel-content">
-    <strong>TG - Offers & Tricks</strong>
-    <p>Cashback, tricks, coupons</p>
-  </div>
-</a>
+      <a class="channel" href="https://t.me/+waoM8OVib4pmYjRl" target="_blank">
+        <i class="fas fa-hand-holding-dollar"></i>
+        <div class="channel-content">
+          <strong>TG - Offers & Tricks</strong>
+          <p>Cashback, tricks, coupons</p>
+        </div>
+      </a>
     </div>
 
     <!-- Other Platforms Column -->
@@ -190,13 +207,13 @@
         </div>
       </a>
 
-    <a class="channel" href="https://instagram.com/truegrabbers" target="_blank">
-  <i class="fab fa-instagram"></i>
-  <div class="channel-content">
-    <strong>Instagram</strong>
-    <p>Follow us on Instagram</p>
-  </div>
-</a>
+      <a class="channel" href="https://instagram.com/truegrabbers" target="_blank">
+        <i class="fab fa-instagram"></i>
+        <div class="channel-content">
+          <strong>Instagram</strong>
+          <p>Follow us on Instagram</p>
+        </div>
+      </a>
     </div>
   </section>
 
