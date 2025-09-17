@@ -11,7 +11,7 @@
   <style>
     :root{
       --accent-1:#ff6a00;
-      --accent-2:#ee0979;
+      --accent-2:#ffb347;
       --accent-3:#6a11cb;
       --accent-4:#2575fc;
       --glass-bg: rgba(255,255,255,0.06);
@@ -24,21 +24,22 @@
     body{
       margin:0;
       font-family:'Inter',sans-serif;
-      background: linear-gradient(120deg,var(--accent-1), var(--accent-2) 25%, var(--accent-3) 60%, var(--accent-4));
-      background-size:1600% 1600%;
-      animation:bgShift 70s linear infinite;
       color:white;
       display:flex;
       flex-direction:column;
       align-items:center;
       justify-content:flex-start;
       padding:20px;
+      overflow-x:hidden;
+      background: linear-gradient(45deg, var(--accent-1), var(--accent-2), var(--accent-3), var(--accent-4));
+      background-size: 800% 800%;
+      animation: gradientFlow 25s ease infinite;
     }
 
-    @keyframes bgShift{
-      0%{background-position:0% 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0 50%}
+    @keyframes gradientFlow{
+      0%{background-position:0% 50%;}
+      50%{background-position:100% 50%;}
+      100%{background-position:0% 50%;}
     }
 
     main{
@@ -209,7 +210,6 @@
       color:rgba(255,255,255,0.6);
     }
 
-    /* floating Contact Us button with text */
     .contact-float{
       position:fixed;
       bottom:20px;
@@ -261,7 +261,7 @@
           <div class="title">TrueGrabbers | Loot Deals</div>
           <div class="desc">Best deals, price drops and loot curated instantly.</div>
         </div>
-        <div class="copy-btn" onclick="copyLink('https://t.me/+jY1FAgS1Wx80Mjk1')" title="Copy Link"><i class="fas fa-link"></i></div>
+        <div class="copy-btn" onclick="copyLink(event, 'https://t.me/+jY1FAgS1Wx80Mjk1')" title="Copy Link"><i class="fas fa-link"></i></div>
       </a>
       <a class="card" href="https://t.me/+ULcdPv-rdOA2YmI1" target="_blank">
         <div class="icon"><i class="fas fa-tags"></i></div>
@@ -269,7 +269,7 @@
           <div class="title">TrueGrabbers 2.0</div>
           <div class="desc">Overflow channel for extra steals deals.</div>
         </div>
-        <div class="copy-btn" onclick="copyLink('https://t.me/+ULcdPv-rdOA2YmI1')" title="Copy Link"><i class="fas fa-link"></i></div>
+        <div class="copy-btn" onclick="copyLink(event, 'https://t.me/+ULcdPv-rdOA2YmI1')" title="Copy Link"><i class="fas fa-link"></i></div>
       </a>
       <a class="card" href="https://t.me/+waoM8OVib4pmYjRl" target="_blank">
         <div class="icon"><i class="fas fa-hand-holding-dollar"></i></div>
@@ -277,7 +277,7 @@
           <div class="title">TG — Offers & Tricks</div>
           <div class="desc">Cashback, coupons, offers & my personal thoughts.</div>
         </div>
-        <div class="copy-btn" onclick="copyLink('https://t.me/+waoM8OVib4pmYjRl')" title="Copy Link"><i class="fas fa-link"></i></div>
+        <div class="copy-btn" onclick="copyLink(event, 'https://t.me/+waoM8OVib4pmYjRl')" title="Copy Link"><i class="fas fa-link"></i></div>
       </a>
     </nav>
 
@@ -301,13 +301,15 @@
     <footer>© 2025 TrueGrabbers • All rights reserved.</footer>
   </main>
 
-  <!-- Floating Contact Us button with text -->
+
+  <!-- Floating Contact Us button -->
   <a class="contact-float" href="mailto:truegrabbers@gmail.com" title="Contact Us">
     <i class="fas fa-envelope"></i> Contact Us
   </a>
 
   <script>
-    function copyLink(url){
+    function copyLink(e, url){
+      e.preventDefault(); // prevent the card link from opening
       navigator.clipboard.writeText(url).then(()=>{
         alert('Link copied to clipboard!');
       }).catch(()=>{alert('Failed to copy link.')});
