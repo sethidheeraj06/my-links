@@ -140,10 +140,25 @@
     .aside .smeta{display:flex;flex-direction:column;}
     .aside .smeta .sname{font-weight:600;}
     .aside .smeta .sdesc{font-size:0.85rem;color:var(--text-muted);}
-    footer{margin-top:18px;text-align:center;font-size:0.82rem;color:rgba(255,255,255,0.6);}
+    footer{
+      margin-top:18px;
+      text-align:center;
+      font-size:0.82rem;
+      color:rgba(255,255,255,0.6);
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+      align-items:center;
+      justify-content:center;
+    }
+    .made-with{
+      font-size:0.85rem;
+      color:rgba(255,255,255,0.85);
+      opacity:0.95;
+    }
     .contact-float{
       position:fixed;
-      bottom:calc(env(safe-area-inset-bottom, 0) + 20px);
+      bottom:20px;
       right:20px;
       padding:12px 18px;
       border-radius:28px;
@@ -159,8 +174,6 @@
       box-shadow:0 4px 20px rgba(0,0,0,0.3);
       text-decoration:none;
       color:white;
-      white-space:nowrap;
-      z-index:9999;
     }
   </style>
 </head>
@@ -216,7 +229,10 @@
       </a>
     </aside>
 
-    <footer>© 2025 TrueGrabbers • All rights reserved.</footer>
+    <footer>
+      <div>© 2025 TrueGrabbers • All rights reserved.</div>
+      <div class="made-with">Made with ❤️ in India 🇮🇳</div>
+    </footer>
   </main>
 
   <!-- Floating Contact Us button -->
