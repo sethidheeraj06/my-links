@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>TrueGrabbers</title>
 
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.png" type="image/x-icon">
-  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+  <!-- Favicon (replace icon.png with your desired file, e.g. favicon.ico, favicon.png) -->
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.png" type="image/png">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -259,4 +260,64 @@
     </div>
 
     <nav class="channels">
-      <a class="card" href="https://t.me/+jY1
+      <a class="card" href="https://t.me/+jY1FAgS1Wx80Mjk1" target="_blank">
+        <div class="icon"><i class="fas fa-bolt"></i></div>
+        <div class="meta">
+          <div class="title">TrueGrabbers | Loot Deals</div>
+          <div class="desc">Best deals, price drops and loot curated instantly.</div>
+        </div>
+        <div class="copy-btn" onclick="copyLink(event, 'https://t.me/+jY1FAgS1Wx80Mjk1')" title="Copy Link"><i class="fas fa-link"></i></div>
+      </a>
+      <a class="card" href="https://t.me/+ULcdPv-rdOA2YmI1" target="_blank">
+        <div class="icon"><i class="fas fa-tags"></i></div>
+        <div class="meta">
+          <div class="title">TrueGrabbers 2.0</div>
+          <div class="desc">Overflow channel for extra steals deals.</div>
+        </div>
+        <div class="copy-btn" onclick="copyLink(event, 'https://t.me/+ULcdPv-rdOA2YmI1')" title="Copy Link"><i class="fas fa-link"></i></div>
+      </a>
+      <a class="card" href="https://t.me/+waoM8OVib4pmYjRl" target="_blank">
+        <div class="icon"><i class="fas fa-hand-holding-dollar"></i></div>
+        <div class="meta">
+          <div class="title">TG — Offers & Tricks</div>
+          <div class="desc">Cashback, coupons, offers & my personal thoughts.</div>
+        </div>
+        <div class="copy-btn" onclick="copyLink(event, 'https://t.me/+waoM8OVib4pmYjRl')" title="Copy Link"><i class="fas fa-link"></i></div>
+      </a>
+    </nav>
+
+    <aside class="aside">
+      <a class="social" href="https://whatsapp.com/channel/0029VaAxlk18aKvKaaMefW1o" target="_blank">
+        <div class="sicon"><i class="fab fa-whatsapp"></i></div>
+        <div class="smeta">
+          <div class="sname">WhatsApp Channel</div>
+          <div class="sdesc">Follow for best deals on whatsapp.</div>
+        </div>
+      </a>
+      <a class="social" href="https://instagram.com/truegrabbers" target="_blank">
+        <div class="sicon"><i class="fab fa-instagram"></i></div>
+        <div class="smeta">
+          <div class="sname">Instagram</div>
+          <div class="sdesc">Follow us on instagram.</div>
+        </div>
+      </a>
+    </aside>
+
+    <footer>© 2025 TrueGrabbers • All rights reserved.</footer>
+  </main>
+
+  <!-- Floating Contact Us button -->
+  <a class="contact-float" href="mailto:truegrabbers@gmail.com" title="Contact Us">
+    <i class="fas fa-envelope"></i> Contact Us
+  </a>
+
+  <script>
+    function copyLink(e, url){
+      e.preventDefault(); // prevent the card link from opening
+      navigator.clipboard.writeText(url).then(()=>{
+        alert('Link copied to clipboard!');
+      }).catch(()=>{alert('Failed to copy link.')});
+    }
+  </script>
+</body>
+</html>
