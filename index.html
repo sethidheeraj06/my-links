@@ -3,27 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-<!-- Theme Colors for Mobile Browsers -->
-<meta name="theme-color" content="#ff6a00"> <!-- Android Chrome, modern browsers -->
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> <!-- Safari iOS -->
-<meta name="apple-mobile-web-app-capable" content="yes">
-
   <title>TrueGrabbers</title>
-
-  <!-- Favicon (replace icon.png with your desired file, e.g. favicon.ico, favicon.png) -->
   <link rel="icon" href="favicon.png" type="image/png">
-  <link rel="apple-touch-icon" href="favicon.png">
-  <link rel="shortcut icon" href="favicon.png" type="image/png">
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
+  <!-- Mobile browser theme colors -->
+  <meta name="theme-color" content="#6a11cb" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#6a11cb" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
   <style>
     :root{
-      --accent-1:#ff6a00;
-      --accent-2:#ffb347;
-      --accent-3:#6a11cb;
-      --accent-4:#2575fc;
+      --accent-1:#6a11cb; /* purple start */
+      --accent-2:#2575fc; /* blue */
+      --accent-3:#ff6a00; /* orange */
+      --accent-4:#ffb347; /* light orange */
       --glass-bg: rgba(255,255,255,0.06);
       --glass-border: rgba(255,255,255,0.08);
       --text-muted: rgba(255,255,255,0.82);
@@ -318,7 +314,8 @@
 
   <script>
     function copyLink(e, url){
-      e.preventDefault(); // prevent the card link from opening
+      e.preventDefault(); // prevent card link opening
+      e.stopPropagation(); // prevent bubbling
       navigator.clipboard.writeText(url).then(()=>{
         alert('Link copied to clipboard!');
       }).catch(()=>{alert('Failed to copy link.')});
