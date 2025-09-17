@@ -38,7 +38,7 @@
     @keyframes bgShift{
       0%{background-position:0% 50%}
       50%{background-position:100% 50%}
-      100%{background-position:0% 50%}
+      100%{background-position:0 50%}
     }
 
     main{
@@ -229,6 +229,9 @@
       text-decoration:none;
       color:white;
       transition: transform 0.2s ease, background 0.2s ease;
+      z-index:9999;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
     }
     .contact-float:hover{
       background: rgba(255,255,255,0.15);
