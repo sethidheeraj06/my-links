@@ -50,7 +50,6 @@
       z-index:1;
     }
 
-    /* Logo and Brand */
     .brand{
       display:flex;
       flex-direction:column;
@@ -70,6 +69,7 @@
       border:1px solid var(--glass-border);
       box-shadow:0 6px 24px rgba(0,0,0,0.35);
       transition: transform 0.3s ease;
+      animation: logoPop 0.4s cubic-bezier(.2,.9,.3,1) 0.08s both;
     }
     .logo-wrap img{
       width:88px;
@@ -89,7 +89,6 @@
       color:var(--text-muted);
     }
 
-    /* Cards for channels */
     .channels{
       display:flex;
       flex-direction:column;
@@ -99,20 +98,24 @@
     .card{
       display:flex;
       align-items:center;
+      justify-content:space-between;
       gap:14px;
       padding:14px 16px;
       border-radius: var(--card-radius);
       background: rgba(255,255,255,0.06);
       border:1px solid var(--glass-border);
+      backdrop-filter: blur(12px);
+      box-shadow: inset 0 0 10px rgba(255,255,255,0.05), 0 6px 24px rgba(0,0,0,0.2);
       text-decoration:none;
       color:inherit;
       transition: transform 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
       font-size:0.95rem;
+      position:relative;
     }
     .card:hover, .card:focus{
       transform: translateY(-4px);
       background: rgba(255,255,255,0.1);
-      box-shadow:0 6px 24px rgba(0,0,0,0.4);
+      box-shadow: inset 0 0 10px rgba(255,255,255,0.05), 0 6px 24px rgba(0,0,0,0.4);
       outline:none;
     }
 
@@ -128,6 +131,7 @@
     .card .meta{
       display:flex;
       flex-direction:column;
+      flex:1;
     }
     .card .meta .title{
       font-weight:600;
@@ -138,7 +142,22 @@
       color:var(--text-muted);
     }
 
-    /* Aside for other platforms */
+    .card .copy-btn{
+      width:32px;
+      height:32px;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      background: rgba(255,255,255,0.08);
+      cursor:pointer;
+      font-size:14px;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .card .copy-btn:hover{
+      background: rgba(255,255,255,0.12);
+      transform: scale(1.1);
+    }
+
     .aside{
       display:flex;
       flex-direction:column;
@@ -190,8 +209,32 @@
       color:rgba(255,255,255,0.6);
     }
 
-    /* small logo pop animation */
-    .logo-wrap{ animation: logoPop 0.4s cubic-bezier(.2,.9,.3,1) 0.08s both;}
+    /* floating Contact Us button with text */
+    .contact-float{
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      padding:12px 18px;
+      border-radius:28px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(8px);
+      border:1px solid var(--glass-border);
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-size:14px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 4px 20px rgba(0,0,0,0.3);
+      text-decoration:none;
+      color:white;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .contact-float:hover{
+      background: rgba(255,255,255,0.15);
+      transform: scale(1.08);
+    }
+
     @keyframes logoPop{
       from{transform:translateY(8px) scale(0.95); opacity:0}
       to{transform:translateY(0) scale(1); opacity:1}
@@ -215,13 +258,15 @@
           <div class="title">TrueGrabbers | Loot Deals</div>
           <div class="desc">Best deals, price drops and loot curated instantly.</div>
         </div>
+        <div class="copy-btn" onclick="copyLink('https://t.me/+jY1FAgS1Wx80Mjk1')" title="Copy Link"><i class="fas fa-link"></i></div>
       </a>
       <a class="card" href="https://t.me/+ULcdPv-rdOA2YmI1" target="_blank">
         <div class="icon"><i class="fas fa-tags"></i></div>
         <div class="meta">
           <div class="title">TrueGrabbers 2.0</div>
-          <div class="desc">Overflow channel for extra steals and limited-time deals.</div>
+          <div class="desc">Overflow channel for extra steals deals.</div>
         </div>
+        <div class="copy-btn" onclick="copyLink('https://t.me/+ULcdPv-rdOA2YmI1')" title="Copy Link"><i class="fas fa-link"></i></div>
       </a>
       <a class="card" href="https://t.me/+waoM8OVib4pmYjRl" target="_blank">
         <div class="icon"><i class="fas fa-hand-holding-dollar"></i></div>
@@ -229,6 +274,7 @@
           <div class="title">TG — Offers & Tricks</div>
           <div class="desc">Cashback, coupons and offers & more.</div>
         </div>
+        <div class="copy-btn" onclick="copyLink('https://t.me/+waoM8OVib4pmYjRl')" title="Copy Link"><i class="fas fa-link"></i></div>
       </a>
     </nav>
 
@@ -237,7 +283,7 @@
         <div class="sicon"><i class="fab fa-whatsapp"></i></div>
         <div class="smeta">
           <div class="sname">WhatsApp Channel</div>
-          <div class="sdesc">Follow for only best deals on whatsapp.</div>
+          <div class="sdesc">Follow for best deals on whatsapp.</div>
         </div>
       </a>
       <a class="social" href="https://instagram.com/truegrabbers" target="_blank">
@@ -247,16 +293,22 @@
           <div class="sdesc">Follow us on instagram.</div>
         </div>
       </a>
-      <a class="social" href="mailto:truegrabbers@gmail.com">
-        <div class="sicon"><i class="fas fa-envelope"></i></div>
-        <div class="smeta">
-          <div class="sname">Contact</div>
-          <div class="sdesc">Questions or collabs? Email us.</div>
-        </div>
-      </a>
     </aside>
 
     <footer>© 2025 TrueGrabbers • All rights reserved.</footer>
   </main>
+
+  <!-- Floating Contact Us button with text -->
+  <a class="contact-float" href="mailto:truegrabbers@gmail.com" title="Contact Us">
+    <i class="fas fa-envelope"></i> Contact Us
+  </a>
+
+  <script>
+    function copyLink(url){
+      navigator.clipboard.writeText(url).then(()=>{
+        alert('Link copied to clipboard!');
+      }).catch(()=>{alert('Failed to copy link.')});
+    }
+  </script>
 </body>
 </html>
