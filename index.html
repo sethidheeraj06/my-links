@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TrueGrabbers</title>
-  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="icon" href="logo.png" type="image/png">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <style>
     body {
@@ -37,24 +37,29 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 14px;
     }
 
     .header-title img {
-      width: 50px; 
-      height: 50px;
-      border-radius: 12px; /* optional rounded */
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* optional shadow */
+      width: 65px; 
+      height: 65px;
+      border-radius: 50%; /* round logo */
+      border: 3px solid rgba(255,255,255,0.6);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
     }
 
     header h1 {
-      font-size: 2.5rem;
-      margin: 0.3rem 0;
+      font-size: 2.6rem;
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 3px 10px rgba(0,0,0,0.3);
     }
 
     header p {
-      font-size: 1.1rem;
-      opacity: 0.8;
+      font-size: 1.15rem;
+      margin-top: 0.6rem;
+      opacity: 0.85;
     }
 
     .channel-columns {
@@ -84,30 +89,28 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      text-decoration: none;
     }
 
     .channel {
       backdrop-filter: blur(12px);
       background: rgba(255, 255, 255, 0.08);
-      border-radius: 20px;
-      padding: 1.5rem;
+      border-radius: 18px;
+      padding: 1.3rem 1.6rem;
       display: flex;
       flex-direction: row;
       align-items: center;
       gap: 15px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 6px 28px rgba(0, 0, 0, 0.22);
       transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
       cursor: pointer;
       text-decoration: none;
       color: inherit;
     }
 
     .channel:hover {
-      transform: translateY(-5px) scale(1.02);
-      background: rgba(255, 255, 255, 0.2);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+      transform: translateY(-6px) scale(1.03);
+      background: rgba(255, 255, 255, 0.18);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
     }
 
     .channel i {
@@ -123,10 +126,23 @@
       flex: 1;
     }
 
+    .channel-content strong {
+      font-size: 1.05rem;
+      margin-bottom: 2px;
+    }
+
     .channel-content p {
       font-size: 0.9rem;
       opacity: 0.8;
       margin: 0;
+    }
+
+    .coming-soon {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      text-align: center;
+      opacity: 0.85;
+      font-style: italic;
     }
 
     footer {
@@ -137,22 +153,10 @@
       text-align: center;
     }
 
-    .channel:active {
-      transform: scale(0.98);
-    }
-
-    .coming-soon {
-      margin-top: 1rem;
-      font-size: 1rem;
-      text-align: center;
-      opacity: 0.8;
-      font-style: italic;
-    }
-
     @media(max-width: 750px){
       .channel-columns { flex-direction: column; align-items: center; }
-      header h1 { font-size: 2rem; }
-      .header-title img { width: 40px; height: 40px; }
+      header h1 { font-size: 2.1rem; }
+      .header-title img { width: 55px; height: 55px; }
     }
   </style>
 </head>
@@ -160,9 +164,9 @@
   <header>
     <div class="header-title">
       <img src="logo.png" alt="TrueGrabbers Logo">
-      <h1>⚡️ TrueGrabbers</h1>
+      <h1>TrueGrabbers</h1>
     </div>
-    <p>Welcome to TrueGrabbers – One-Stop Destination for Loot, Deals & Offers!</p>
+    <p>One-Stop Destination for Loot, Deals & Offers</p>
   </header>
 
   <section class="channel-columns">
