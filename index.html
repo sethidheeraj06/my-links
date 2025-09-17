@@ -2,228 +2,261 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>TrueGrabbers</title>
   <link rel="icon" href="logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      background: linear-gradient(270deg, #ff6a00, #ee0979, #6a11cb, #2575fc);
-      background-size: 800% 800%;
-      animation: gradientBG 60s ease infinite;
-      color: #fff;
+    :root{
+      --accent-1:#ff6a00;
+      --accent-2:#ee0979;
+      --accent-3:#6a11cb;
+      --accent-4:#2575fc;
+      --glass-bg: rgba(255,255,255,0.06);
+      --glass-border: rgba(255,255,255,0.08);
+      --text-muted: rgba(255,255,255,0.82);
+      --card-radius:16px;
     }
 
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      font-family:'Inter',sans-serif;
+      background: linear-gradient(120deg,var(--accent-1), var(--accent-2) 25%, var(--accent-3) 60%, var(--accent-4));
+      background-size:1600% 1600%;
+      animation:bgShift 70s linear infinite;
+      color:white;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+      padding:20px;
     }
 
-    header {
-      text-align: center;
-      margin: 3rem 1rem 2rem;
+    @keyframes bgShift{
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
     }
 
-    .header-logo {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 1rem;
+    main{
+      width:100%;
+      max-width:480px;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+      z-index:1;
     }
 
-    .header-logo img {
-      width: 85px; 
-      height: 85px;
-      border-radius: 50%; /* round */
-      border: 3px solid rgba(255,255,255,0.7);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    /* Logo and Brand */
+    .brand{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      gap:10px;
+      margin-bottom:10px;
     }
 
-    header h1 {
-      font-size: 2.6rem;
-      margin: 0;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    .logo-wrap{
+      width:96px;
+      height:96px;
+      border-radius:50%;
+      background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      display:grid;
+      place-items:center;
+      border:1px solid var(--glass-border);
+      box-shadow:0 6px 24px rgba(0,0,0,0.35);
+      transition: transform 0.3s ease;
+    }
+    .logo-wrap img{
+      width:88px;
+      height:88px;
+      border-radius:50%;
+      object-fit:cover;
     }
 
-    header p {
-      font-size: 1.15rem;
-      margin-top: 0.6rem;
-      opacity: 0.85;
+    .brand h1{
+      margin:0;
+      font-size:1.8rem;
+      font-weight:700;
+    }
+    .brand p{
+      margin:0;
+      font-size:1rem;
+      color:var(--text-muted);
     }
 
-    .channel-columns {
-      display: flex;
-      gap: 20px;
-      width: 90%;
-      max-width: 900px;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-      justify-content: center;
+    /* Cards for channels */
+    .channels{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
     }
 
-    .column {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      flex: 1;
-      min-width: 300px;
+    .card{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      padding:14px 16px;
+      border-radius: var(--card-radius);
+      background: rgba(255,255,255,0.06);
+      border:1px solid var(--glass-border);
+      text-decoration:none;
+      color:inherit;
+      transition: transform 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
+      font-size:0.95rem;
+    }
+    .card:hover, .card:focus{
+      transform: translateY(-4px);
+      background: rgba(255,255,255,0.1);
+      box-shadow:0 6px 24px rgba(0,0,0,0.4);
+      outline:none;
     }
 
-    .column h2 {
-      text-align: center;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      opacity: 0.9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
+    .card .icon{
+      width:48px;
+      height:48px;
+      display:grid;
+      place-items:center;
+      border-radius:12px;
+      background: rgba(255,255,255,0.04);
+      font-size:20px;
+    }
+    .card .meta{
+      display:flex;
+      flex-direction:column;
+    }
+    .card .meta .title{
+      font-weight:600;
+      font-size:1rem;
+    }
+    .card .meta .desc{
+      font-size:0.88rem;
+      color:var(--text-muted);
     }
 
-    .channel {
-      backdrop-filter: blur(12px);
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 18px;
-      padding: 1.3rem 1.6rem;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 15px;
-      box-shadow: 0 6px 28px rgba(0, 0, 0, 0.22);
-      transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      text-decoration: none;
-      color: inherit;
+    /* Aside for other platforms */
+    .aside{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      margin-top:12px;
+    }
+    .aside .social{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:12px;
+      border-radius:12px;
+      background: rgba(255,255,255,0.04);
+      border:1px solid var(--glass-border);
+      text-decoration:none;
+      color:inherit;
+      font-size:0.95rem;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .aside .social:hover{
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.08);
+    }
+    .aside .sicon{
+      width:40px;
+      height:40px;
+      display:grid;
+      place-items:center;
+      border-radius:10px;
+      font-size:18px;
+      background: rgba(255,255,255,0.03);
+    }
+    .aside .smeta{
+      display:flex;
+      flex-direction:column;
+    }
+    .aside .smeta .sname{
+      font-weight:600;
+    }
+    .aside .smeta .sdesc{
+      font-size:0.85rem;
+      color:var(--text-muted);
     }
 
-    .channel:hover {
-      transform: translateY(-6px) scale(1.03);
-      background: rgba(255, 255, 255, 0.18);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+    footer{
+      margin-top:18px;
+      text-align:center;
+      font-size:0.82rem;
+      color:rgba(255,255,255,0.6);
     }
 
-    .channel i {
-      font-size: 2rem;
-      min-width: 40px;
-      text-align: center;
-      color: #fff;
-    }
-
-    .channel-content {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-
-    .channel-content strong {
-      font-size: 1.05rem;
-      margin-bottom: 2px;
-    }
-
-    .channel-content p {
-      font-size: 0.9rem;
-      opacity: 0.8;
-      margin: 0;
-    }
-
-    .coming-soon {
-      margin-top: 1rem;
-      font-size: 1.05rem;
-      text-align: center;
-      opacity: 0.85;
-      font-style: italic;
-    }
-
-    footer {
-      margin-top: auto;
-      padding: 1rem;
-      font-size: 0.85rem;
-      opacity: 0.7;
-      text-align: center;
-    }
-
-    @media(max-width: 750px){
-      .channel-columns { flex-direction: column; align-items: center; }
-      header h1 { font-size: 2.1rem; }
-      .header-logo img { width: 70px; height: 70px; }
+    /* small logo pop animation */
+    .logo-wrap{ animation: logoPop 0.4s cubic-bezier(.2,.9,.3,1) 0.08s both;}
+    @keyframes logoPop{
+      from{transform:translateY(8px) scale(0.95); opacity:0}
+      to{transform:translateY(0) scale(1); opacity:1}
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="header-logo">
-      <img src="logo.png" alt="TrueGrabbers Logo">
-    </div>
-    <h1>TrueGrabbers</h1>
-    <p>One-Stop Destination for Loot, Deals & Offers</p>
-  </header>
-
-  <section class="channel-columns">
-    <!-- Telegram Column -->
-    <div class="column">
-      <h2><i class="fab fa-telegram-plane"></i> Telegram Channels</h2>
-
-      <a class="channel" href="https://t.me/+jY1FAgS1Wx80Mjk1" target="_blank">
-        <i class="fas fa-bolt"></i>
-        <div class="channel-content">
-          <strong>TrueGrabbers | Loot Deals</strong>
-          <p>Best deals, price drops deals</p>
-        </div>
-      </a>
-
-      <a class="channel" href="https://t.me/+ULcdPv-rdOA2YmI1" target="_blank">
-        <i class="fas fa-tag"></i>
-        <div class="channel-content">
-          <strong>TrueGrabbers 2.0</strong>
-          <p>Overflow of steal-worthy deals</p>
-        </div>
-      </a>
-
-      <a class="channel" href="https://t.me/+waoM8OVib4pmYjRl" target="_blank">
-        <i class="fas fa-hand-holding-dollar"></i>
-        <div class="channel-content">
-          <strong>TG - Offers & Tricks</strong>
-          <p>Cashback, tricks, coupons</p>
-        </div>
-      </a>
+  <main>
+    <div class="brand">
+      <div class="logo-wrap">
+        <img src="logo.png" alt="TrueGrabbers logo">
+      </div>
+      <h1>TrueGrabbers</h1>
+      <p>One-stop destination for loot, deals & offers — join our channels for instant alerts.</p>
     </div>
 
-    <!-- Other Platforms Column -->
-    <div class="column">
-      <h2><i class="fas fa-share-alt"></i> Other Platforms</h2>
-
-      <a class="channel" href="https://whatsapp.com/channel/0029VaAxlk18aKvKaaMefW1o" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-        <div class="channel-content">
-          <strong>WhatsApp Channel</strong>
-          <p>Join WhatsApp channel</p>
+    <nav class="channels">
+      <a class="card" href="https://t.me/+jY1FAgS1Wx80Mjk1" target="_blank">
+        <div class="icon"><i class="fas fa-bolt"></i></div>
+        <div class="meta">
+          <div class="title">TrueGrabbers | Loot Deals</div>
+          <div class="desc">Best deals, price drops and loot curated instantly.</div>
         </div>
       </a>
-
-      <a class="channel" href="https://instagram.com/truegrabbers" target="_blank">
-        <i class="fab fa-instagram"></i>
-        <div class="channel-content">
-          <strong>Instagram</strong>
-          <p>Follow us on Instagram</p>
+      <a class="card" href="https://t.me/+ULcdPv-rdOA2YmI1" target="_blank">
+        <div class="icon"><i class="fas fa-tags"></i></div>
+        <div class="meta">
+          <div class="title">TrueGrabbers 2.0</div>
+          <div class="desc">Overflow channel for extra steals and limited-time deals.</div>
         </div>
       </a>
-    </div>
-  </section>
+      <a class="card" href="https://t.me/+waoM8OVib4pmYjRl" target="_blank">
+        <div class="icon"><i class="fas fa-hand-holding-dollar"></i></div>
+        <div class="meta">
+          <div class="title">TG — Offers & Tricks</div>
+          <div class="desc">Cashback, coupons and offers & more.</div>
+        </div>
+      </a>
+    </nav>
 
-  <div class="coming-soon">🌐 Website coming soon!</div>
+    <aside class="aside">
+      <a class="social" href="https://whatsapp.com/channel/0029VaAxlk18aKvKaaMefW1o" target="_blank">
+        <div class="sicon"><i class="fab fa-whatsapp"></i></div>
+        <div class="smeta">
+          <div class="sname">WhatsApp Channel</div>
+          <div class="sdesc">Follow for only best deals on whatsapp.</div>
+        </div>
+      </a>
+      <a class="social" href="https://instagram.com/truegrabbers" target="_blank">
+        <div class="sicon"><i class="fab fa-instagram"></i></div>
+        <div class="smeta">
+          <div class="sname">Instagram</div>
+          <div class="sdesc">Follow us on instagram.</div>
+        </div>
+      </a>
+      <a class="social" href="mailto:truegrabbers@gmail.com">
+        <div class="sicon"><i class="fas fa-envelope"></i></div>
+        <div class="smeta">
+          <div class="sname">Contact</div>
+          <div class="sdesc">Questions or collabs? Email us.</div>
+        </div>
+      </a>
+    </aside>
 
-  <footer>
-    © 2025 TrueGrabbers. All rights reserved.
-  </footer>
+    <footer>© 2025 TrueGrabbers • All rights reserved.</footer>
+  </main>
 </body>
 </html>
